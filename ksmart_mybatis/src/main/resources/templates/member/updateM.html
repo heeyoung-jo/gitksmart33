@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<th:block layout:fragment="customTitle">
+	<title>수정화면</title>
+</th:block>
+<th:block layout:fragment="customContents" th:with="a = ${member}">	
+	
+	<form th:action="@{/updateM}" method="post">
+	<table border="1">
+		<tr>
+			<td>아이디</td>
+			<td><input type = "text" name="memberId" th:value="${a.memberId}" readonly="readonly"></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type = "password" name="memberPw" th:value="${a.memberPw}"></td>
+		</tr>
+		<tr>
+			<td>권한</td>
+			<td><input type ="text" name="memberLevel" th:value="${a.memberLevel}"><br></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="memberName" th:value="${a.memberName}"><br></td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" name="memberEmail" th:value="${a.memberEmail}"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button type="submit" value="수정">수정</button></td>
+		</tr>
+	
+	</table>
+	</form>
+</th:block>
